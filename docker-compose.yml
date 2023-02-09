@@ -3,3 +3,13 @@ version: "3"
 services:
   test_2048:
     image: alexwhen/docker-2048
+    ports:
+      - "8080:80"
+  web:
+    build: .
+    ports:
+    - "8081:8080"
+    volumes:
+      - type: bind
+        source: ./log
+        target: /log
